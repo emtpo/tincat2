@@ -32,6 +32,7 @@ if(empty($_POST["password"])){
     // vérifie si le champ pseudo est vide
 }elseif(empty($_POST["pseudo"])){
     echo "<h1>Pseudo empty</h1>";
+    // confirmer l'inscription
 }else{
     echo "<h1>Confirmed inscription</h1>";
 
