@@ -13,21 +13,29 @@ try {
 }
 var_dump($_POST);
 // Avant d'insérer en base de données faire les vérifications suivantes
-    // Vérifier si le pseudo ou le mot de passe est vide
+
+
+// Vérifier si le mot de passe est vide
+if(empty($_POST["password"])){
+
+    //action 
+    echo "<h1>Password empty</h1>";
+
     // Ajouter un input confirm password et vérifier si les deux sont égaux
-    // Ajouter un champ email
+}elseif($_POST["password"] != $_POST["confirm-password"]){
+    echo "<h1>Password not correct</h1>";
 
-// SI email égal test@test.com et password égal admin
-if($_GET["emailUser"] == "test@test.com" && $_GET["password"] == "admin" && $_GET["password"] == "confirm-password" ){
-    echo "Hello " . $_GET["emailUser"];
+    // vérifie si le champ email est vide
+}elseif(empty($_POST["email"])){
+    echo "<h1>Email empty</h1>";
 
-}else if( empty($_GET["password"]) ){
-   /******* Si password vide: tansmettre un message d'erreur, Header Location ....... ******/
-   header("Location: localhost/tincat/register.php?errorMessage=Empty password");
+    // vérifie si le champ pseudo est vide
+}elseif(empty($_POST["pseudo"])){
+    echo "<h1>Pseudo empty</h1>";
 }else{
-   header("Location: localhost/tincat/register.php?errorMessage=Erreur de connexion");
-}
-  
+    echo "<h1>Confirmed inscription</h1>";
+
+
 // Etape 3 : prepare request
 $req = $db->prepare("INSERT INTO users (pseudo, password) VALUES(:pseudo, :password)");
 $req->bindParam(":pseudo", $_POST["pseudo"]);
