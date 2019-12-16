@@ -23,9 +23,9 @@ if($_GET["emailUser"] == "test@test.com" && $_GET["password"] == "admin" && $_GE
 
 }else if( empty($_GET["password"]) ){
    /******* Si password vide: tansmettre un message d'erreur, Header Location ....... ******/
-   header("Location: setUser.php?errorMessage=Empty password");
+   header("Location: localhost/tincat/register.php?errorMessage=Empty password");
 }else{
-   header("Location: setUser.php?errorMessage=Erreur de connexion");
+   header("Location: localhost/tincat/register.php?errorMessage=Erreur de connexion");
 }
   
 // Etape 3 : prepare request
