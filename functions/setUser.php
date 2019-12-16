@@ -22,7 +22,7 @@ if(empty($_POST["password"])){
     echo "<h1>Password empty</h1>";
 
     // Ajouter un input confirm password et vérifier si les deux sont égaux
-}elseif($_POST["password"] != $_POST["confirm-password"]){
+}elseif($_POST["password"] != $_POST["password2"]){
     echo "<h1>Password not correct</h1>";
 
     // vérifie si le champ email est vide
@@ -38,7 +38,9 @@ if(empty($_POST["password"])){
 
 
 // Etape 3 : prepare request
-$req = $db->prepare("INSERT INTO users (pseudo, password) VALUES(:pseudo, :password)");
+$req = $db->prepare("INSERT INTO users (email, pseudo, password, password2) VALUES(:email, :pseudo, :password, :password2)");
+$req->bindParam(":email", $_POST["email"]);
 $req->bindParam(":pseudo", $_POST["pseudo"]);
 $req->bindParam(":password", $_POST["password"]);
+$req->bindParam(":password2", $_POST["password2"]);
 $req->execute();
