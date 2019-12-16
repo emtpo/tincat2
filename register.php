@@ -9,9 +9,16 @@
            <input type="email" name="email" placeholder="email">
            <input type="text" placeholder="pseudo" name="pseudo">
            <input type="password" placeholder="password" name="password">
-           <input type="password" placeholder="confirm password" name="password2">
+           <input type="password" placeholder="confirm password" name="confirmPassword">
            <input type="submit" value="register">
         </form>
+    </div>
+
+    <div class="message">
+        <?php
+        if( isset ($_Get["message"])){
+            echo $_GET["message"];
+        } ?>
     </div>
     
 </body>
