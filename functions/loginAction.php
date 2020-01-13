@@ -19,9 +19,10 @@ if( !empty($_POST["pseudo"]) && !empty($_POST["password"]) ){
     $req->execute();
 
     $result = $req->fetch(PDO::FETCH_ASSOC);
-
+    var_dump($result);
     if($result === false){
         $message = "User not exist";
+       
         header("Location: ../login.php?message=$message");
     }else{
         session_start();
