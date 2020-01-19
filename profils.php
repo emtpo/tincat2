@@ -25,7 +25,7 @@
             ?>
                 <div>
                     <strong><?= $result["pseudo"] ?></strong>
-                    <a href="">Supprimer</a>
+                    <a href="functions/deleteUser.php?user_id=<?php echo $result["id"]; ?> "> Supprimer</a>
                 </div>
            <?php             
         }
